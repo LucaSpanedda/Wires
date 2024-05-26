@@ -1,2 +1,4 @@
 # Wires
-The "Wires Cycle" is a series of works for instruments that focuses on investigating the condition of the eternal present.
+
+The "Wires Cycle" is a series of works for instruments that focuses on investigating the condition of the eternal present. This exploration centers on the perception of events, merging micro and macro-temporalities to experiment with a systemic relational condition of causes and effects. These tensions are expressed through scores that evolve over time, much like complex adaptive systems.
+The pathways created over time are always different, yet they are interconnected by past choices that shape their future evolution. Each performance, therefore, maintains a balance of coherence and novelty, offering a new audible and expressive experiences for both the performers and the audience. This dynamic interplay ensures that no two performances are ever identical, while still preserving an underlying unity.
