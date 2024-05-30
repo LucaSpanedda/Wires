@@ -94,12 +94,8 @@
 \fontsize #8 \line {Legend}
   }
 }
-% SEMIOGRAPHY VARIABLES
-% note^variables-name or Note_variables-name
 
-% 
-% EPS
-%
+% SEMIOGRAPHY VARIABLES
 %aperiodicA = \markup{\rotate #180 {\epsfile #X #6 #"prova.eps"}}
 
 % GENERIC
@@ -107,80 +103,25 @@ ripetibattuta = \markup \center-align {\fontsize #8 { 𝄎 }}
 continua = \markup \center-align {\fontsize #4 {\italic continua → }}
 fermatasymb = \markup \center-align {\fontsize #12 𝄐 }
 caesura = \markup \center-align {\fontsize #12 𝄓 } 
-noiseA = \markup \center-align {\fontsize #8 {⌖} }
-noiseB = \markup \center-align {\fontsize #2 {∅} } 
-noiseC = \markup \center-align {\fontsize #2 {〇} } 
+noiseC = \markup \center-align {\rotate #45 \fontsize #4 {⊛} }
+noiseB = \markup \center-align {\rotate #45 \fontsize #2 {⊕} } 
+noiseA = \markup \center-align {\fontsize #2 {⊖} } 
 flatterzungeC = \markup \center-align {\fontsize #8 {𝅬 } }
 flatterzungeB = \markup \center-align {\fontsize #8 {𝅫 } }
 flatterzungeA = \markup \center-align {\fontsize #8 {𝅪 } } 
-
-respirarect = \markup \center-align {\fontsize #2 {⊗} }
-aspirarect = \markup \center-align {\fontsize #2 {◪} }
-aspirarest = \markup \center-align {\fontsize #2 {⧄} }
-espirarect = \markup \center-align {\rotate #135 \fontsize #4 {◧} }
-espirarest = \markup \center-align {\rotate #45 \fontsize #1 {⊟} }
-
-gutturale = \markup \center-align {\fontsize #4 {◉} } 
-growl = \markup \center-align {GRWL}
-scream = \markup \center-align {SCRM}
-letteraa = \markup \center-align {\fontsize #6 \circle {A}} 
-ha = \markup \center-align {\fontsize #1 \circle {HA}}
-tosse = \markup \center-align {\fontsize #2 {⋫} }
-pianto = \markup \center-align {\fontsize #2 {⍋} }
-risata = \markup \center-align {\fontsize #2 {ℏ} } 
-urlo = \markup \center-align {\fontsize #2 {Д} }
-orgasmo = \markup \center-align {\fontsize #2 {ḿ} }
-morph = \markup \center-align {morphing}
-
-% WIND
-soffio = \markup \center-align {\fontsize #2 {∇} }
-highestn = \markup \center-align {\fontsize #8 {▴} }
-lowestn = \markup \center-align {\fontsize #8 {▾} }
-
-% DEFINIZIONE DELLE VARIABILI DA RICHIAMARE
-% (i markup che richiami sopra le note riguardanti la semiografia)
-aspirarect = \markup \center-align {\fontsize #2 {◪} }
-aspirarest = \markup \center-align {\fontsize #2 {⧄} }
-espirarect = \markup \center-align {\rotate #135 \fontsize #2 {◧} }
-espirarest = \markup \center-align {\rotate #45 \fontsize #2 {⊟} }
-espirarest = \markup \center-align {\rotate #45 \fontsize #2 {⊟} }
-boccachiusa = \markup \center-align {\fontsize #8 {⌖} }
-boccasemiaperta = \markup \center-align {\fontsize #2 {∅} } 
-boccaaperta = \markup \center-align {\fontsize #2 {〇} } 
-gutturale = \markup \center-align {\fontsize #4 {◉} } 
-growl = \markup \center-align {GRWL}
-scream = \markup \center-align {SCRM}
-letteraa = \markup \center-align {\fontsize #6 \circle {A}} 
-ha = \markup \center-align {\fontsize #1 \circle {HA}}
-tosse = \markup \center-align {\fontsize #2 {⋫} }
-pianto = \markup \center-align {\fontsize #2 {⍋} }
-risata = \markup \center-align {\fontsize #2 {ⓗ} }
-morph = \markup \center-align {morphing}
-
-freeze = \markup \center-align \box {\fontsize #4 \line {☞⇥}}
-trigs = \markup \center-align \box {\fontsize #4 \line {☞⇆}}
-trigstop = \markup \center-align \box {\fontsize #4 \line {☞x}}
-scenen = \markup \center-align {\fontsize #1 \box {sceneN}} 
-scenezero = \markup \center-align {\fontsize #1 \box {scene0}} 
-sceneuno = \markup \center-align {\fontsize #1 \box {scene1}}
-scenedue = \markup \center-align {\fontsize #1 \box {scene2}}
-scenedueb = \markup \center-align {\fontsize #1 \box {scene2b}}
-scenetre = \markup \center-align {\fontsize #1 \box {scene3}}
-scenequattro = \markup \center-align {\fontsize #1 \box {scene4}} 
-scenecinque = \markup \center-align {\fontsize #1 \box {scene5}}
-scenesei = \markup \center-align {\fontsize #1 \box {scene6}}
-scenesette = \markup \center-align {\fontsize #1 \box {scene7}}
-sceneotto = \markup \center-align {\fontsize #1 \box {scene8}} 
-scenenove = \markup \center-align {\fontsize #1 \box {scene9}}
-scenedieci = \markup \center-align {\fontsize #1 \box {scene10}}
-sceneundici = \markup \center-align {\fontsize #1 \box {scene11}}
-scenedodici = \markup \center-align {\fontsize #1 \box {scene12}}
-scenedodicib = \markup \center-align {\fontsize #1 \box {scene12b}}
+harmonic = \markup \center-align {\fontsize #4 {⋄} }
+pizzicatoA = \markup \center-align {\fontsize #2 {∨} }
+pizzicatoB = \markup \center-align {\fontsize #4 {⍱} }
+keyclicks = \markup \center-align {\fontsize #1 {☓} } 
+plus = \markup \center-align {\fontsize #2 {+} }
+minus = \markup \center-align {\fontsize #4 {-} } 
+accA = \markup \sharp
+accB = \markup \semisharp
+bemA = \markup \flat 
+bemB = \markup \semiflat
 
 
 % SEMIOGRAFIA
-
-% ---- voce
 \markup {
 \column 
 {
@@ -196,6 +137,35 @@ scenedodicib = \markup \center-align {\fontsize #1 \box {scene12b}}
 \line {\flatterzungeB - prova}
 \vspace #2
 \line {\flatterzungeC - prova}
+\vspace #2
+\line {\harmonic - prova}
+\vspace #2
+\line {\pizzicatoA - prova}
+\vspace #2
+\line {\pizzicatoB - prova}
+\vspace #2
+\line {\keyclicks - prova}
+\vspace #2
+}
+}
+
+% PAGINA A CAPO
+\pageBreak
+
+\markup {
+\column 
+{
+\line {\accA - prova}
+\vspace #2
+\line {\accB - prova}
+\vspace #2
+\line {\bemA - prova}
+\vspace #2
+\line {\bemB - prova}
+\vspace #2
+\line {\plus - prova}
+\vspace #2
+\line {\minus - prova}
 \vspace #2
 }
 }
