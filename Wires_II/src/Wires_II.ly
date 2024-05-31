@@ -3,8 +3,8 @@
 \include "date.ly"
 % #(set-global-staff-size 20)
 
-% TITOLO
-\markup {
+% Name
+\markup { 
   \column {
     \vspace #8
     \center-column {
@@ -22,11 +22,9 @@
     }
   }
 }
-
-% PAGINA A CAPO
 \pageBreak
 
-% TESTO
+% Perfomance Notes
 \markup {
   \column {
 \fontsize #8 \line {Performance Notes}
@@ -63,29 +61,24 @@
 \vspace #1
   }
 }
-
-% PAGINA A CAPO
 \pageBreak
 
-% SEMIOGRAPHY
+% Staging
 \markup {
   \column {
 \fontsize #8 \line {Staging of the performance}
   }
 }
-% TITOLO
 \markup {
   \column {
     \vspace #8
     \center-column {
       \fill-line { 
-      \general-align #Y #CENTER {\epsfile #X #40 #"scena.eps"}
+      \general-align #Y #CENTER {\epsfile #X #80 #"scena.eps"}
       }
     }
   }
 }
-
-% PAGINA A CAPO
 \pageBreak
 
 % SEMIOGRAPHY
@@ -94,13 +87,9 @@
 \fontsize #8 \line {Legend}
   }
 }
-
-% SEMIOGRAPHY VARIABLES
-%aperiodicA = \markup{\rotate #180 {\epsfile #X #6 #"prova.eps"}}
-
-% GENERIC
 ripetibattuta = \markup \center-align {\fontsize #8 { 𝄎 }}
-continua = \markup \center-align {\fontsize #4 {\italic continua → }}
+acce = \markup \center-align {\rotate #15 \fontsize #2 {\italic ⟶}}
+decce = \markup \left-align {\rotate #195 \fontsize #2 {\italic ⟶}}
 fermatasymb = \markup \center-align {\fontsize #12 𝄐 }
 caesura = \markup \center-align {\fontsize #12 𝄓 } 
 noiseC = \markup \center-align {\rotate #45 \fontsize #4 {⊛} }
@@ -111,6 +100,7 @@ flatterzungeB = \markup \center-align {\fontsize #8 {𝅫 } }
 flatterzungeA = \markup \center-align {\fontsize #8 {𝅪 } } 
 harmonic = \markup \center-align {\fontsize #4 {⋄} }
 pizzicatoA = \markup \center-align {\fontsize #2 {∨} }
+pizzicatoAinv = \markup \center-align {\rotate #180 \fontsize #2 {∨} }
 pizzicatoB = \markup \center-align {\fontsize #4 {⍱} }
 keyclicks = \markup \center-align {\fontsize #1 {☓} } 
 plus = \markup \center-align {\fontsize #2 {+} }
@@ -119,71 +109,58 @@ accA = \markup \sharp
 accB = \markup \semisharp
 bemA = \markup \flat 
 bemB = \markup \semiflat
-
-
-% SEMIOGRAFIA
+% plot
 \markup {
 \column 
 {
 \vspace #2
-\line {\noiseA - prova}
+\line {\box \noiseA = Sound of the blow audible with a greater prevalence of the sound at a determined pitch.}
 \vspace #2
-\line {\noiseB - prova}
+\line {\box \noiseB = Sound of the blow audible with a mid prevalence of the sound at a determined pitch.}
 \vspace #2
-\line {\noiseC - prova}
+\line {\box \noiseC = Sound of the blow audible without presency of sound at a determined pitch.}
 \vspace #2
-\line {\flatterzungeA - prova}
+\line {\box \flatterzungeA = Tongue Fluttering}
 \vspace #2
-\line {\flatterzungeB - prova}
+\line {\box \flatterzungeB = Tongue Fluttering}
 \vspace #2
-\line {\flatterzungeC - prova}
+\line {\box \flatterzungeC = Tongue Fluttering}
 \vspace #2
-\line {\harmonic - prova}
+\line {\box \harmonic = Overtone or Multiphonics, without specifying a determined pitch}
 \vspace #2
-\line {\pizzicatoA - prova}
+\line {\box \pizzicatoA = Tongue or throat pizzicato, without producing an audible percussive effect}
 \vspace #2
-\line {\pizzicatoB - prova}
+\line {\box \pizzicatoB = Tongue or throat pizzicato, producing an audible percussive effect}
 \vspace #2
-\line {\keyclicks - prova}
+\line {\box \keyclicks = Key clicks, tapping the keys and producing an audible percussive effect}
 \vspace #2
 }
 }
-
-% PAGINA A CAPO
 \pageBreak
-
 \markup {
 \column 
 {
-\line {\accA - prova}
+\line {\box \accA = briefly produce a passage up a semitone}
 \vspace #2
-\line {\accB - prova}
+\line {\box \accB = Briefly produce a passage up a quarter tone}
 \vspace #2
-\line {\bemA - prova}
+\line {\box \bemA = briefly produce a passage down a semitone}
 \vspace #2
-\line {\bemB - prova}
+\line {\box \bemB = Briefly produce a passage down a quarter tone}
 \vspace #2
-\line {\plus - prova}
+\line {\box \plus or \box{\plus \plus} or \box{\plus \plus \plus} = Briefly produce a passage to an upper pitch (three possible graduations)}
 \vspace #2
-\line {\minus - prova}
+\line {\box \minus or \box{\minus \minus} or \box{\minus \minus \minus} = Briefly produce a passage to a lower pitch (three possible graduations)}
 \vspace #2
 }
 }
-
-% PAGINA A CAPO
 \pageBreak
 
-
-glissandoSkipOn = {
-  \override NoteColumn.glissando-skip = ##t
-  \hide NoteHead
-  \override NoteHead.no-ledgers = ##t
-}
-
-
+% Score Proprieties
 stemOff = \hide Staff.Stem 
 stemOn  = \undo \stemOff
 rigo = \override Staff.StaffSymbol.line-count = #1
+rigozero = \override Staff.StaffSymbol.line-count = #0
 pentagramma = \revert Staff.StaffSymbol.line-count
 iniziocorona = \set Score.repeatCommands = #'((volta #f) (volta "") end-repeat)
 finecorona = \set Score.repeatCommands = #'((volta #f))
@@ -191,6 +168,515 @@ notainvisibile = \override Voice.NoteHead.color = #white
 notavisibile = \override Voice.NoteHead.color = #black
 stangheoff = \stemOff 
 stangheon = \stemOn
+dalnulla = \override Hairpin.circled-tip = ##t
+revertdalnulla = \revert Hairpin.circled-tip
 
+% Frequency Ranges
+\markup {
+  \column {
+\fontsize #8 \line {Frequency Ranges}
+\vspace # 2
+\fontsize #2 \line {- The Frequency Ranges are the ambitus of the notes that the performers can play during the performance.}
+\vspace #1
+\fontsize #2 \line {- The performers can choose only 1 common range per performance.}
+\vspace #1
+\fontsize #2 \line {\rounded-box{H} = Highest note of the instrument that the performers can achieve, choosing a same pitch for both.}
+\vspace #1
+\fontsize #2 \line {\rounded-box{M} = Note in the Mid register of the instrument that the performers can achieve, choosing a same pitch for both.}
+\vspace #1
+\fontsize #2 \line {\rounded-box{L} = Lowest note of the instrument that the performers can achieve, choosing a same pitch for both.}
+\vspace #1
+\fontsize #2 \line {\rounded-box{t} = tone; \rounded-box{st} = semitone. }
+\vspace #1
+  }
+}
+% 1
+\markup {
+ \line { \fill-line {
+\box
+ \center-column{
+  \vspace # 1
+  \line \fontsize #4 \italic {Range 1}
+  \vspace #1
+    \score{
+      % no time signature and instrument name
+      \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Evoked}} \remove "Time_signature_engraver"} 
+        {
+          \cadenzaOn
+          \once \override Staff.Clef.color = #white
+          \once \override Staff.Clef.layer = #-1
+          \stopStaff \rigo \startStaff
+          \stangheoff
+          b'4^\markup{H}\glissando s1 a'4_\markup{- 1t}
+          s1
+        }
+    }
+    \score{
+      % no time signature and instrument name
+      \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Primary}} \remove "Time_signature_engraver"} 
+        {
+          \cadenzaOn
+          \once \override Staff.Clef.color = #white
+          \once \override Staff.Clef.layer = #-1
+          \stopStaff \rigo \startStaff
+          \stangheoff
+          b'4^\markup{H}\glissando s1 a'4_\markup{- 1t}
+          \stopStaff \rigozero \startStaff
+          s1^\markup{\rounded-box OR}
+          \stopStaff \rigo \startStaff
+          b'4^\markup{M}\glissando s1 g'4_\markup{- 2t}
+        }
+    }
+    \score{
+      % no time signature and instrument name
+      \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Echoic}} \remove "Time_signature_engraver"} 
+        {
+          \cadenzaOn
+          \once \override Staff.Clef.color = #white
+          \once \override Staff.Clef.layer = #-1
+          \stopStaff \rigo \startStaff
+          \stangheoff
+          b'4^\markup{H}\glissando s1 a'4_\markup{- 1t}
+        }
+    }
+  }
+\box
+ \center-column{
+  \vspace # 1
+  \line \fontsize #4 \italic {Range 2}
+  \vspace #1
+    \score{
+      % no time signature and instrument name
+      \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Evoked}} \remove "Time_signature_engraver"} 
+        {
+          \cadenzaOn
+          \once \override Staff.Clef.color = #white
+          \once \override Staff.Clef.layer = #-1
+          \stopStaff \rigo \startStaff
+          \stangheoff
+          b'4^\markup{H}\glissando s1 a'4_\markup{- 1t}
+          \stopStaff \rigozero \startStaff
+          s1^\markup{\rounded-box OR}
+          \stopStaff \rigo \startStaff
+          b'4^\markup{M}\glissando s1 g'4_\markup{- 2t}
+        }
+    }
+    \score{
+      % no time signature and instrument name
+      \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Primary}} \remove "Time_signature_engraver"} 
+        {
+          \cadenzaOn
+          \once \override Staff.Clef.color = #white
+          \once \override Staff.Clef.layer = #-1
+          \stopStaff \rigo \startStaff
+          \stangheoff
+          b'4^\markup{M}\glissando s1 g'4_\markup{- 2t}
+        }
+    }
+    \score{
+      % no time signature and instrument name
+      \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Echoic}} \remove "Time_signature_engraver"} 
+        {
+          \cadenzaOn
+          \once \override Staff.Clef.color = #white
+          \once \override Staff.Clef.layer = #-1
+          \stopStaff \rigo \startStaff
+          \stangheoff
+          b'4^\markup{M}\glissando s1 g'4_\markup{- 2t}
+          \stopStaff \rigozero \startStaff
+          s1^\markup{\rounded-box OR}
+          \stopStaff \rigo \startStaff
+          b'4^\markup{L}\glissando s1 d''4^\markup{+ 2t}
+        }
+    }
+  }
+ }}
+\vspace # 2
+}
+% 2
+\markup {
+ \line { \fill-line {
+\box
+ \center-column{
+  \vspace # 1
+  \line \fontsize #4 \italic {Range 3}
+  \vspace #1
+    \score{
+      % no time signature and instrument name
+      \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Evoked}} \remove "Time_signature_engraver"} 
+        {
+          \cadenzaOn
+          \once \override Staff.Clef.color = #white
+          \once \override Staff.Clef.layer = #-1
+          \stopStaff \rigo \startStaff
+          \stangheoff
+          b'4^\markup{M}\glissando s1 g'4_\markup{- 2t}
+        }
+    }
+    \score{
+      % no time signature and instrument name
+      \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Primary}} \remove "Time_signature_engraver"} 
+        {
+          \cadenzaOn
+          \once \override Staff.Clef.color = #white
+          \once \override Staff.Clef.layer = #-1
+          \stopStaff \rigo \startStaff
+          \stangheoff
+          b'4^\markup{M}\glissando s1 g'4_\markup{- 2t}
+          \stopStaff \rigozero \startStaff
+          s1^\markup{\rounded-box OR}
+          \stopStaff \rigo \startStaff
+          b'4^\markup{L}\glissando s1 ces''4^\markup{+ 1st}
+        }
+    }
+    \score{
+      % no time signature and instrument name
+      \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Echoic}} \remove "Time_signature_engraver"} 
+        {
+          \cadenzaOn
+          \once \override Staff.Clef.color = #white
+          \once \override Staff.Clef.layer = #-1
+          \stopStaff \rigo \startStaff
+          \stangheoff
+          b'4^\markup{L}\glissando s1 d''4^\markup{+ 3t + 1st}
+        }
+    }
+  }
+\box
+ \center-column{
+  \vspace # 1
+  \line \fontsize #4 \italic {Range 4}
+  \vspace #1
+    \score{
+      % no time signature and instrument name
+      \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Evoked}} \remove "Time_signature_engraver"} 
+        {
+          \cadenzaOn
+          \once \override Staff.Clef.color = #white
+          \once \override Staff.Clef.layer = #-1
+          \stopStaff \rigo \startStaff
+          \stangheoff
+          b'4^\markup{L}\glissando s1 d''4^\markup{+ 2t}
+        }
+    }
+    \score{
+      % no time signature and instrument name
+      \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Primary}} \remove "Time_signature_engraver"} 
+        {
+          \cadenzaOn
+          \once \override Staff.Clef.color = #white
+          \once \override Staff.Clef.layer = #-1
+          \stopStaff \rigo \startStaff
+          \stangheoff
+          b'4^\markup{L}\glissando s1 d''4^\markup{+ 3t + 1st}
+        }
+    }
+    \score{
+      % no time signature and instrument name
+      \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Echoic}} \remove "Time_signature_engraver"} 
+        {
+          \cadenzaOn
+          \once \override Staff.Clef.color = #white
+          \once \override Staff.Clef.layer = #-1
+          \stopStaff \rigo \startStaff
+          \stangheoff
+          b'4^\markup{L}\glissando s1 ces''4^\markup{+ 1st}
+        }
+    }
+  }
+ }}
+}
+\pageBreak
+
+% SCORE 
+% white score
+\new Staff \with { instrumentName = "" \remove "Time_signature_engraver" } 
+    {
+    \cadenzaOn
+    % UN SOLO RIGO
+    \stopStaff \rigo \startStaff
+    \once \override Staff.Clef.color = #white
+    \once \override Staff.Clef.layer = #-1
+    \stopStaff \rigozero \startStaff
+    s1 s1 s1 s1
+    \stopStaff \rigo \startStaff
+    }
+    
+% no time signature
+\new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Evoked}} \remove "Time_signature_engraver" } 
+
+    {
+    \cadenzaOn
+    
+    % UN SOLO RIGO
+    \stopStaff \rigo \startStaff
+    \once \override Staff.Clef.color = #white
+    \once \override Staff.Clef.layer = #-1
+    \autoLineBreaksOff
+    \override DynamicLineSpanner.staff-padding = #8
+    
+    \dalnulla
+    \iniziocorona
+    s1_\bemB\<
+    \revertdalnulla
+    s1^\plus
+    s1_\minus_\pizzicatoAinv\f\>
+    \bar "|" \mark"" s1
+    s1^\accB
+    s1^\plus^\noiseA^\pizzicatoA
+    \stopStaff \rigozero \startStaff
+    s1
+    s1^\noiseC\mf\<
+    \stopStaff \rigo \startStaff
+    s1
+    s1^\noiseB
+    \bar "|" \mark"" s1
+    s1^\flatterzungeC
+    s1^\noiseA
+    \stopStaff \rigozero \startStaff
+    s1\fff\>
+    {\notainvisibile [c''16^\pizzicatoA c''16_\acce c''16^\pizzicatoA] \notavisibile}
+    \stopStaff \rigo \startStaff
+    s1
+    s1^\noiseB^\plus^\plus\f\<
+    \bar "|" \mark"" s1
+    s1_\minus_\noiseA
+    s1^\keyclicks
+    \stopStaff \rigozero \startStaff
+    s1
+    {\notainvisibile [c''16^\keyclicks_\decce c''16^\pizzicatoA c''16^\pizzicatoB] \notavisibile}\ff\>
+    \stopStaff \rigo \startStaff
+    s1
+    s1^\noiseC
+    \bar "|" \mark"" s1
+    s1_\bemB
+    s1^\noiseA
+    \stopStaff \rigozero \startStaff
+    s1
+    s1^\noiseC\mf\<
+    \stopStaff \rigo \startStaff
+    \bar "|" \mark"" s1
+    s1^\flatterzungeC
+    s1^\keyclicks
+    s1^\keyclicks
+    s1^\keyclicks^\noiseA\fff\>
+    \stopStaff \rigozero \startStaff
+    s1
+    {\notainvisibile [c''16 c''16^\pizzicatoA_\acce c''16^\pizzicatoB] \notavisibile} 
+    \stopStaff \rigo \startStaff
+    s1
+    s1_\minus_\noiseA\f\>
+    \bar "|" \mark"" s1
+    s1^\noiseC
+    \stopStaff \rigozero \startStaff
+    s1
+    {\notainvisibile [c''16^\keyclicks c''16^\keyclicks c''16^\keyclicks c''16^\keyclicks c''16^\keyclicks] \notavisibile} 
+    \stopStaff \rigo \startStaff
+    s1
+    \dalnulla
+    s1^\plus^\plus\mf\>
+    \bar "|" \mark"" s1
+    s1^\accB
+    s1^\plus^\noiseA
+    s1_\minus_\pizzicatoAinv
+    s1^\noiseA
+    s1^\plus
+    s1^\accA\!
+    \revertdalnulla
+    s1^\markup \center-align {\fontsize #1 {}} 
+    \finecorona
+    \bar "|" \mark 
+    \markup {
+      \column {
+        {
+        \fontsize # 0.1 \line {60'' [C]}
+        \fontsize # 0.1 \line {40'' [B]}
+        \fontsize # 0.1 \line {20'' [A]}
+        }
+      }
+    }
+    \break
+    }
+
+ % no time signature
+\new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Primary}} \remove "Time_signature_engraver" } 
+
+    {
+    \cadenzaOn
+    
+    % UN SOLO RIGO
+    \stopStaff \rigo \startStaff
+    \once \override Staff.Clef.color = #white
+    \once \override Staff.Clef.layer = #-1
+    \autoLineBreaksOff
+    \override DynamicLineSpanner.staff-padding = #8
+     
+    \iniziocorona
+    \dalnulla
+    s1_\bemB\<
+    \revertdalnulla
+    s1^\noiseA
+    s1_\minus_\pizzicatoAinv\mf\>
+    s1^\accB
+    s1^\plus^\noiseA
+    \stopStaff \rigozero \startStaff
+    s1
+    s1^\noiseC\p\<
+    \stopStaff \rigo \startStaff
+    \bar "|" \mark"" s1
+    s1^\flatterzungeC
+    s1^\noiseB\f\>
+    \stopStaff \rigozero \startStaff
+    s1
+    {\notainvisibile [c''16^\pizzicatoA c''16_\acce c''16] \notavisibile} 
+    \stopStaff \rigo \startStaff
+    \bar "|" \mark"" s1
+    s1^\plus^\noiseA\mf\<
+    s1^\keyclicks
+    \stopStaff \rigozero \startStaff
+    s1
+    {\notainvisibile [c''16^\keyclicks_\decce c''16 c''16^\pizzicatoB] \notavisibile} 
+    \stopStaff \rigo \startStaff
+    s1_\bemB\f\>
+    \bar "|" \mark"" s1
+    s1_\minus
+    \stopStaff \rigozero \startStaff
+    s1
+    s1^\noiseC\p\<
+    \stopStaff \rigo \startStaff
+    \bar "|" \mark"" s1
+    s1^\flatterzungeC
+    s1^\noiseB\mf\<
+    \stopStaff \rigozero \startStaff
+    s1
+    {\notainvisibile [c''16^\pizzicatoA c''16^\pizzicatoB_\acce c''16^\pizzicatoA] \notavisibile} 
+    \stopStaff \rigo \startStaff
+    \bar "|" \mark"" s1
+    s1_\minus_\noiseA\f\>
+    s1^\noiseC
+    \stopStaff \rigozero \startStaff
+    s1
+    {\notainvisibile [c''16^\keyclicks_\decce c''16^\keyclicks c''16^\keyclicks] \notavisibile} 
+    \stopStaff \rigo \startStaff
+    \bar "|" \mark"" s1
+    \dalnulla
+    s1^\accB\p\>
+    s1^\plus^\noiseA
+    s1_\minus_\pizzicatoAinv
+    s1^\noiseA
+    s1_\bemB\!
+    \revertdalnulla
+    s1^\markup \center-align {\fontsize #1 {}} 
+    \finecorona
+    \bar "|" \mark 
+    \markup {
+      \column {
+        {
+        \fontsize # 0.1 \line {60'' [C]}
+        \fontsize # 0.1 \line {40'' [B]}
+        \fontsize # 0.1 \line {20'' [A]}
+        }
+      }
+    }
+    \break
+    }
+
+ % no time signature
+\new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Echoic}} \remove "Time_signature_engraver" } 
+
+    {
+    \cadenzaOn
+    
+    % UN SOLO RIGO
+    \stopStaff \rigo \startStaff
+    \once \override Staff.Clef.color = #white
+    \once \override Staff.Clef.layer = #-1
+    \autoLineBreaksOff
+    \override DynamicLineSpanner.staff-padding = #8
+
+    \iniziocorona
+    \dalnulla
+    s1^\noiseA\<
+    \revertdalnulla
+    s1_\bemB_\noiseB\p\>
+    s1^\noiseA
+    s1^\markup \center-align {\fontsize #1 {}} 
+    s1^\accB\pp\>
+    s1^\markup \center-align {\fontsize #1 {}} 
+    \bar "|" \mark"" s1
+    s1^\flatterzungeC
+    s1^\noiseB\ppp\<
+    \stopStaff \rigozero \startStaff
+    s1
+    {\notainvisibile [c''16 c''16] \notavisibile} 
+    \stopStaff \rigo \startStaff
+    s1
+    s1^\noiseC
+    s1^\accB^\noiseA\p\>
+    \bar "|" \mark"" 
+    \stopStaff \rigozero \startStaff
+    s1
+    {\notainvisibile [c''16 c''16] \notavisibile} 
+    \stopStaff \rigo \startStaff
+    s1
+    \stopStaff \rigozero \startStaff
+    s1
+    {\notainvisibile [c''16 c''16] \notavisibile}\ppp\<
+    \stopStaff \rigo \startStaff
+    s1
+    s1_\bemB
+    s1^\noiseC
+    s1^\markup \center-align {\fontsize #1 {}} 
+    \bar "|" \mark"" s1
+    s1^\flatterzungeC\pp\<
+    \stopStaff \rigozero \startStaff
+    s1
+    {\notainvisibile [c''16 c''16] \notavisibile} 
+    \stopStaff \rigo \startStaff
+    s1
+    \stopStaff \rigozero \startStaff
+    s1
+    {\notainvisibile [c''16 c''16] \notavisibile}\p\>
+    \stopStaff \rigo \startStaff
+    \bar "|" \mark"" s1
+    s1^\noiseB
+    \stopStaff \rigozero \startStaff
+    s1
+    {\notainvisibile [c''16 c''16 c''16] \notavisibile}\pp\>
+    \stopStaff \rigo \startStaff
+    \bar "|" \mark"" s1
+    s1^\accB
+    \dalnulla
+    s1_\bemB\ppp\>
+    s1^\markup \center-align {\fontsize #1 {}} 
+    s1^\noiseA\!
+    \revertdalnulla
+    s1^\markup \center-align {\fontsize #1 {}} 
+    \finecorona
+    \bar "|" \mark 
+    \markup {
+      \column {
+        {
+        \fontsize # 0.1 \line {60'' [C]}
+        \fontsize # 0.1 \line {40'' [B]}
+        \fontsize # 0.1 \line {20'' [A]}
+        }
+      }
+    }
+    \break
+    }
+
+% white score
+\new Staff \with { instrumentName = "" \remove "Time_signature_engraver" } 
+    {
+    \cadenzaOn
+    % UN SOLO RIGO
+    \stopStaff \rigo \startStaff
+    \once \override Staff.Clef.color = #white
+    \once \override Staff.Clef.layer = #-1
+    \stopStaff \rigozero \startStaff
+    s1 s1 s1 s1
+    \stopStaff \rigo \startStaff
+    }
 
 \include "mytag.ly"
