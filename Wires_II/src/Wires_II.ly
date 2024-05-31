@@ -440,7 +440,7 @@ revertdalnulla = \revert Hairpin.circled-tip
     s1
     s1^\noiseB^\plus^\plus\f\<
     \bar "|" \mark"" s1
-    s1_\minus_\noiseA
+    s1_\minus_\minus_\noiseA
     s1^\keyclicks
     \stopStaff \rigozero \startStaff
     s1
@@ -459,7 +459,7 @@ revertdalnulla = \revert Hairpin.circled-tip
     s1^\flatterzungeC
     s1^\keyclicks
     s1^\keyclicks
-    s1^\keyclicks^\noiseA\fff\>
+    s1^\keyclicks^\noiseB\fff\>
     \stopStaff \rigozero \startStaff
     s1
     {\notainvisibile [c''16 c''16^\pizzicatoA_\acce c''16^\pizzicatoB] \notavisibile} 
@@ -478,7 +478,7 @@ revertdalnulla = \revert Hairpin.circled-tip
     \bar "|" \mark"" s1
     s1^\accB
     s1^\plus^\noiseA
-    s1_\minus_\pizzicatoAinv
+    s1_\minus_\minus_\pizzicatoAinv
     s1^\noiseA
     s1^\plus
     s1^\accA\!
@@ -621,7 +621,7 @@ revertdalnulla = \revert Hairpin.circled-tip
     s1
     \stopStaff \rigozero \startStaff
     s1
-    {\notainvisibile [c''16 c''16] \notavisibile}\ppp\<
+    {\notainvisibile [c''16_\acce c''16] \notavisibile}\ppp\<
     \stopStaff \rigo \startStaff
     s1
     s1_\bemB
@@ -636,13 +636,13 @@ revertdalnulla = \revert Hairpin.circled-tip
     s1
     \stopStaff \rigozero \startStaff
     s1
-    {\notainvisibile [c''16 c''16] \notavisibile}\p\>
+    {\notainvisibile [c''16_\decce c''16] \notavisibile}\p\>
     \stopStaff \rigo \startStaff
     \bar "|" \mark"" s1
     s1^\noiseB
     \stopStaff \rigozero \startStaff
     s1
-    {\notainvisibile [c''16 c''16 c''16] \notavisibile}\pp\>
+    {\notainvisibile [c''16 c''16] \notavisibile}\pp\>
     \stopStaff \rigo \startStaff
     \bar "|" \mark"" s1
     s1^\accB
