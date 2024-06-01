@@ -24,6 +24,21 @@
 }
 \pageBreak
 
+% Score Proprieties
+stemOff = \hide Staff.Stem 
+stemOn  = \undo \stemOff
+rigo = \override Staff.StaffSymbol.line-count = #1
+rigozero = \override Staff.StaffSymbol.line-count = #0
+pentagramma = \revert Staff.StaffSymbol.line-count
+iniziocorona = \set Score.repeatCommands = #'((volta #f) (volta "") end-repeat)
+finecorona = \set Score.repeatCommands = #'((volta #f))
+notainvisibile = \override Voice.NoteHead.color = #white
+notavisibile = \override Voice.NoteHead.color = #black
+stangheoff = \stemOff 
+stangheon = \stemOn
+dalnulla = \override Hairpin.circled-tip = ##t
+revertdalnulla = \revert Hairpin.circled-tip
+
 % Perfomance Notes
 \markup {
   \column {
@@ -31,8 +46,42 @@
 \vspace #2
 \fontsize #2 \line {- The composition is built on 3 layers of memory: primary, evoked, echoic.}
 \vspace #1
-\fontsize #2 \line {- The duration of each memory (A) lasts 20'', this can vary according to the indications provided below regarding memory pointers.}
+\fontsize #2 \line {- The duration of each memory (A) lasts 20'', this can vary according to the indications provided below.}
 \vspace #1
+%
+\line {  
+  \fontsize #2 - {
+    \vspace #1
+      \score{
+        \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Memory}} \remove "Time_signature_engraver" } 
+
+    {
+    \cadenzaOn
+    
+    % UN SOLO RIGO
+    \stopStaff \rigo \startStaff
+    \once \override Staff.Clef.color = #white
+    \once \override Staff.Clef.layer = #-1
+    \autoLineBreaksOff
+    \override DynamicLineSpanner.staff-padding = #8
+    
+    s1
+    \bar "|" 
+    s1
+    \bar "|" \mark"memory pointers"
+    s1
+    \bar "|"
+    s1
+    \bar "|"
+    s1
+    
+    }
+    
+    }
+  }
+}
+\vspace # 1
+%
 \fontsize #2 \line {- At the beginning of the performance, the two performers freely choose 2 different memory pointers from the primary memory and start playing from them simultaneously.}
 \vspace #1
 \fontsize #2 \line {- Except for the different indications below, the performance must occur at a single pitch, different for each layer and derived from the range of possible pitches for a given layer.}
@@ -43,7 +92,7 @@
 \fontsize #2 \line {- Each performer, within a time span ranging from 7'' to 20'', upon reaching a memory pointer,}
 \fontsize #2 \line {must switch to another pointer of choice within the same current layer. The pointer can be any within the same layer.}
 \vspace #1
-\fontsize #2 \line {- Memory pointers contain (A), (B), (C) time signature markers. Within a time frame ranging from 1' to 2', one of the two performers, upon reaching a pointer with a marker,}
+\fontsize #2 \line {- Every Memory contain (A), (B), (C) time signature markers. Within a time frame ranging from 1' to 2', one of the two performers, upon reaching a memory pointer,}
 \fontsize #2 \line {can change the time to (A), (B), (C), then signal the other performer who, upon reaching any memory pointer,} 
 \fontsize #2 \line {must continue to perform at the same time chosen by the other performer.}
 \vspace #1
@@ -114,15 +163,101 @@ bemB = \markup \semiflat
 \column 
 {
 \vspace #2
+\fontsize #1 \line {- The piece must be performed entirely on a continuous note indicated by the continuous line. Unless explicitly required,} 
+\fontsize #1 \line {it is preferable not to break the continuous sound maintained with circular breathing.} 
+\fontsize #1 \line {It is better to take a breath at the points where the continuous sound is necessarily interrupted.}
+\vspace #2
+%
+\line {  
+    {
+    \vspace #1
+      \score{
+        \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Memory}} \remove "Time_signature_engraver" } 
+
+    {
+    \cadenzaOn
+    
+    % UN SOLO RIGO
+    \stopStaff \rigo \startStaff
+    \once \override Staff.Clef.color = #white
+    \once \override Staff.Clef.layer = #-1
+    \autoLineBreaksOff
+    \override DynamicLineSpanner.staff-padding = #8
+    
+    s1 s1 s1 s1^\markup{sound continuum}
+    }
+    
+    }
+  }
+}
+\vspace # 1
+%
+\vspace # 2
+%
+\line {  
+    {
+    \vspace #1
+      \score{
+        \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Memory}} \remove "Time_signature_engraver" } 
+
+    {
+    \cadenzaOn
+    
+    % UN SOLO RIGO
+    \stopStaff \rigo \startStaff
+    \once \override Staff.Clef.color = #white
+    \once \override Staff.Clef.layer = #-1
+    \autoLineBreaksOff
+    \override DynamicLineSpanner.staff-padding = #8
+    
+    s1
+    s1^\accB
+    s1^\plus^\noiseA^\pizzicatoA
+    s1^\markup{example of articulations without breaking the sound continuum}
+    
+    }
+    
+    }
+  }
+}
+%
+\vspace # 2
+%
+\line {  
+    {
+    \vspace #1
+      \score{
+        \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Memory}} \remove "Time_signature_engraver" } 
+
+    {
+    \cadenzaOn
+    
+    % UN SOLO RIGO
+    \stopStaff \rigo \startStaff
+    \once \override Staff.Clef.color = #white
+    \once \override Staff.Clef.layer = #-1
+    \autoLineBreaksOff
+    \override DynamicLineSpanner.staff-padding = #8
+    
+    s1
+    \stopStaff \rigozero \startStaff
+    s16
+    {\notainvisibile [c''16^\pizzicatoA c''16_\acce c''16^\pizzicatoA] \notavisibile}
+    \stopStaff \rigo \startStaff
+    s1^\markup{example of articulations breaking the sound continuum}
+    
+    }
+    
+    }
+  }
+}
+%
+\vspace # 2
 \line {\box \noiseA = Sound of the blow audible with a greater prevalence of the sound at a determined pitch.}
 \vspace #2
 \line {\box \noiseB = Sound of the blow audible with a mid prevalence of the sound at a determined pitch.}
 \vspace #2
 \line {\box \noiseC = Sound of the blow audible without presency of sound at a determined pitch.}
-\vspace #2
-\line {\box \flatterzungeA = Tongue Fluttering}
-\vspace #2
-\line {\box \flatterzungeB = Tongue Fluttering}
 \vspace #2
 \line {\box \flatterzungeC = Tongue Fluttering}
 \vspace #2
@@ -140,6 +275,99 @@ bemB = \markup \semiflat
 \markup {
 \column 
 {
+%
+\line {  
+    {
+    \vspace #1
+      \score{
+        \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Memory}} \remove "Time_signature_engraver" } 
+
+    {
+    \cadenzaOn
+    
+    % UN SOLO RIGO
+    \stopStaff \rigo \startStaff
+    \once \override Staff.Clef.color = #white
+    \once \override Staff.Clef.layer = #-1
+    \autoLineBreaksOff
+    \override DynamicLineSpanner.staff-padding = #8
+    
+    s1
+    \stopStaff \rigozero \startStaff
+    s16
+    {\notainvisibile [c''16 c''16 c''16] \notavisibile}
+    \stopStaff \rigo \startStaff
+    s1^\markup{group of aperiodic base rythimc sounds}
+    
+    }
+    
+    }
+  }
+}
+%
+\vspace #2
+%
+\line {  
+    {
+    \vspace #1
+      \score{
+        \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Memory}} \remove "Time_signature_engraver" } 
+
+    {
+    \cadenzaOn
+    
+    % UN SOLO RIGO
+    \stopStaff \rigo \startStaff
+    \once \override Staff.Clef.color = #white
+    \once \override Staff.Clef.layer = #-1
+    \autoLineBreaksOff
+    \override DynamicLineSpanner.staff-padding = #8
+    
+    s1
+    \stopStaff \rigozero \startStaff
+    s16
+    {\notainvisibile [c''16 c''16_\acce c''16] \notavisibile}
+    \stopStaff \rigo \startStaff
+    s1^\markup{group of aperiodic base rythimc sounds in accelerando}
+    
+    }
+    
+    }
+  }
+}
+%
+\vspace #2
+%
+\line {  
+    {
+    \vspace #1
+      \score{
+        \new Staff \with { instrumentName = \markup \center-align {\fontsize #2 \rounded-box \bold {Memory}} \remove "Time_signature_engraver" } 
+
+    {
+    \cadenzaOn
+    
+    % UN SOLO RIGO
+    \stopStaff \rigo \startStaff
+    \once \override Staff.Clef.color = #white
+    \once \override Staff.Clef.layer = #-1
+    \autoLineBreaksOff
+    \override DynamicLineSpanner.staff-padding = #8
+    
+    s1
+    \stopStaff \rigozero \startStaff
+    s16
+    {\notainvisibile [c''16_\decce c''16 c''16] \notavisibile}
+    \stopStaff \rigo \startStaff
+    s1^\markup{group of aperiodic base rythimc sounds in decelerando}
+    
+    }
+    
+    }
+  }
+}
+%
+\vspace #2
 \line {\box \accA = briefly produce a passage up a semitone}
 \vspace #2
 \line {\box \accB = Briefly produce a passage up a quarter tone}
@@ -154,22 +382,9 @@ bemB = \markup \semiflat
 \vspace #2
 }
 }
+
 \pageBreak
 
-% Score Proprieties
-stemOff = \hide Staff.Stem 
-stemOn  = \undo \stemOff
-rigo = \override Staff.StaffSymbol.line-count = #1
-rigozero = \override Staff.StaffSymbol.line-count = #0
-pentagramma = \revert Staff.StaffSymbol.line-count
-iniziocorona = \set Score.repeatCommands = #'((volta #f) (volta "") end-repeat)
-finecorona = \set Score.repeatCommands = #'((volta #f))
-notainvisibile = \override Voice.NoteHead.color = #white
-notavisibile = \override Voice.NoteHead.color = #black
-stangheoff = \stemOff 
-stangheon = \stemOn
-dalnulla = \override Hairpin.circled-tip = ##t
-revertdalnulla = \revert Hairpin.circled-tip
 
 % Frequency Ranges
 \markup {
@@ -220,11 +435,7 @@ revertdalnulla = \revert Hairpin.circled-tip
           \once \override Staff.Clef.layer = #-1
           \stopStaff \rigo \startStaff
           \stangheoff
-          b'4^\markup{H}\glissando s1 a'4_\markup{- 1t}
-          \stopStaff \rigozero \startStaff
-          s1^\markup{\rounded-box OR}
-          \stopStaff \rigo \startStaff
-          b'4^\markup{M}\glissando s1 g'4_\markup{- 2t}
+          b'4^\markup{H}\glissando s1 g'4_\markup{- 2t}
         }
     }
     \score{
@@ -236,7 +447,7 @@ revertdalnulla = \revert Hairpin.circled-tip
           \once \override Staff.Clef.layer = #-1
           \stopStaff \rigo \startStaff
           \stangheoff
-          b'4^\markup{H}\glissando s1 a'4_\markup{- 1t}
+          s4^\markup{H} a'4_\markup{- 1t}\glissando s1 g'4_\markup{- 1t}
         }
     }
   }
@@ -258,7 +469,7 @@ revertdalnulla = \revert Hairpin.circled-tip
           \stopStaff \rigozero \startStaff
           s1^\markup{\rounded-box OR}
           \stopStaff \rigo \startStaff
-          b'4^\markup{M}\glissando s1 g'4_\markup{- 2t}
+          s1^\markup{M} s4 a'4_\markup{- 1t}\glissando s1 g'4_\markup{- 1t}
         }
     }
     \score{
@@ -282,7 +493,7 @@ revertdalnulla = \revert Hairpin.circled-tip
           \once \override Staff.Clef.layer = #-1
           \stopStaff \rigo \startStaff
           \stangheoff
-          b'4^\markup{M}\glissando s1 g'4_\markup{- 2t}
+          s1^\markup{M} s4 a'4_\markup{- 1t}\glissando s1 g'4_\markup{- 1t}
           \stopStaff \rigozero \startStaff
           s1^\markup{\rounded-box OR}
           \stopStaff \rigo \startStaff
@@ -321,8 +532,8 @@ revertdalnulla = \revert Hairpin.circled-tip
           \once \override Staff.Clef.color = #white
           \once \override Staff.Clef.layer = #-1
           \stopStaff \rigo \startStaff
-          \stangheoff
-          b'4^\markup{M}\glissando s1 g'4_\markup{- 2t}
+          \stangheoff 
+          s1^\markup{M} s4 a'4_\markup{- 1t}\glissando s1 g'4_\markup{- 1t}
           \stopStaff \rigozero \startStaff
           s1^\markup{\rounded-box OR}
           \stopStaff \rigo \startStaff
